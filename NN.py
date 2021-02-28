@@ -134,7 +134,7 @@ X_train = df_to_X(iris_train)
 Y_train = df_to_y(iris_train, species_names)
 
 #Regularisation parameter
-lamb = 0.1
+lamb = 0.01
 
 #Minimise the cost function using BFGS method, providing a gradient function
 res = minimize(cost, Theta_initial_unrolled, args = (X_train, Y_train, input_layer_size, hidden_layer_size, output_layer_size, lamb),

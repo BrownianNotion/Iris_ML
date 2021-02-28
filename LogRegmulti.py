@@ -7,6 +7,9 @@ species_names = iris_df['Species'].unique()
 #shuffle rows
 iris_shuffled_df = iris_df.sample(frac = 1)
 
+"""
+To change: add a function for shuffling and splitting.
+"""
 #SECTION 1: Split into training and test examples
 m_train = 120
 m_test = len(iris_df.index) - m_train
@@ -21,6 +24,9 @@ def df_to_X(df, drops = ['Id', 'Species']):
     X = np.c_[np.ones(m), X]
     return X
 
+"""
+Rename as onehot and change if needed.
+"""
 #Convert data frame to y vector/matrix of 1's and 0s
 #each row is a training example
 def df_to_y(df, species_names, drops = ['Id', 'Species']):
@@ -33,6 +39,9 @@ def df_to_y(df, species_names, drops = ['Id', 'Species']):
         y[:, i] = y_temp
     return y
 
+"""
+Possibly relegate code below under if name == "__main__"
+"""
 X_train = df_to_X(iris_train)
 X_test = df_to_X(iris_test)
 y_train = df_to_y(iris_train, species_names) #each column will be used in the multiclass classification
